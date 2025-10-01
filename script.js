@@ -10,43 +10,39 @@ document.addEventListener("DOMContentLoaded", function () {
     function addTask() {
         const taskText = taskInput.value.trim(); // Get trimmed input
 
-        // Check if input is empty
+        // Alert if input is empty
         if (taskText === "") {
             alert("Please enter a task.");
             return;
         }
 
-        // Create a new list item
+        // Create a new list item for the task
         const li = document.createElement("li");
         li.textContent = taskText;
 
-        // Create a remove button with inline styles
+        // Create a remove button (no class assigned)
         const removeBtn = document.createElement("button");
         removeBtn.textContent = "Remove";
-        removeBtn.style.cursor = "pointer";
-        removeBtn.style.backgroundColor = "#ff6347";
-        removeBtn.style.color = "white";
-        removeBtn.style.border = "none";
-        removeBtn.style.borderRadius = "4px";
-        removeBtn.style.padding = "5px 10px";
 
         // Remove task when button is clicked
         removeBtn.onclick = function () {
             taskList.removeChild(li);
         };
 
-        // Append remove button to the list item and list item to the task list
+        // Append the remove button to the list item
         li.appendChild(removeBtn);
+
+        // Append the list item to the task list
         taskList.appendChild(li);
 
         // Clear the input field
         taskInput.value = "";
     }
 
-    // Add task when Add Task button is clicked
+    // Event listener for Add Task button
     addButton.addEventListener("click", addTask);
 
-    // Add task when Enter key is pressed
+    // Event listener for Enter key press
     taskInput.addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
             addTask();
