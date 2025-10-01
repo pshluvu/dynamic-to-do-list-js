@@ -1,4 +1,4 @@
-// Wait until the DOM is fully loaded
+// Wait for the DOM to fully load
 document.addEventListener("DOMContentLoaded", function () {
 
     // Select DOM elements
@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Create list item for the task
+        // Create a new list item
         const li = document.createElement("li");
         li.textContent = taskText;
 
-        // Create remove button
+        // Create a remove button with inline styles
         const removeBtn = document.createElement("button");
         removeBtn.textContent = "Remove";
         removeBtn.style.cursor = "pointer";
@@ -30,23 +30,23 @@ document.addEventListener("DOMContentLoaded", function () {
         removeBtn.style.borderRadius = "4px";
         removeBtn.style.padding = "5px 10px";
 
-        // Remove task when button is clicked
+        // Remove the task when button is clicked
         removeBtn.onclick = function () {
             taskList.removeChild(li);
         };
 
-        // Append remove button to li and li to task list
+        // Append the remove button to the task and the task to the list
         li.appendChild(removeBtn);
         taskList.appendChild(li);
 
-        // Clear the input field
+        // Clear input field
         taskInput.value = "";
     }
 
-    // Add task on button click
+    // Add task when Add button is clicked
     addButton.addEventListener("click", addTask);
 
-    // Add task on Enter key press
+    // Add task when Enter key is pressed
     taskInput.addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
             addTask();
@@ -54,3 +54,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
